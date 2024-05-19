@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "toudan"
+version = "0.1.0"
+description = ""
+authors = ["po3rin <abctail30@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+feedparser = "^6.0.11"
+pandera = "^0.19.3"
+polars-lts-cpu = "^0.20.26"
+
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.4"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
