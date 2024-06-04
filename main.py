@@ -46,9 +46,17 @@ def load_keywords() -> LazyFrame[KeywordSchema]:
     return pl.scan_csv("keywords.csv")
 
 
+@pa.check_types
+def extract_events_include_keywords(events_lf: LazyFrame[EventSchema], keywords_lf: LazyFrame[KeywordSchema]) -> LazyFrame[EventSchema]:
+    keywords_list = keywords_lf.to_pandas()["key"].tolist()
+    events_lf["recommend"] = events_lf["summary"].str.contains("|".join(keywords_list))
+    return events_lf
+
+
 def main() -> None:
     events_lf = get_event().collect()
     keywords_lf = load_keywords().collect()
+    events_lf = extract_events_include_keywords(events_lf, keywords_lf)
 
     print(events_lf)
     print(keywords_lf)
