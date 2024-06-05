@@ -3,7 +3,10 @@ name = "toudan"
 version = "0.1.0"
 description = ""
 authors = ["po3rin <abctail30@gmail.com>"]
+repository = "http://github.com/po3rin/toudan"
+homepage = "http://github.com/po3rin/toudan"
 readme = "README.md"
+license = "Apache-2.0"
 
 [tool.poetry.dependencies]
 python = "^3.12"
