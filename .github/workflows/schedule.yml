@@ -34,6 +34,7 @@ jobs:
         run: poetry install --without dev
 
       - name: Run
-        with: # Set the secret as an input
-          super_secret: ${{ secrets.SLACK_WEBHOOK_URL }}
-        run: poetry run main.py
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          poetry run main.py
