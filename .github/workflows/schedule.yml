@@ -37,4 +37,5 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          poetry run main.py
+          ls
+          poetry run python main.py
